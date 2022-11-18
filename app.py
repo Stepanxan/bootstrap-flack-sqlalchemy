@@ -28,7 +28,7 @@ class Employees(db.Model):
     departmentID = db.Column(db.Integer, db.ForeignKey('departmentID'))
 
     def __repr__(self):
-        return f"<departments {self.id}>"
+        return f"<employees {self.id}>"
 
 @app.route('/')
 @app.route('/home')
