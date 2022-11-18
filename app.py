@@ -4,6 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = False
 db = SQLAlchemy(app)
 
 
@@ -15,7 +16,19 @@ class Departments(db.Model):
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Departments %r>' % self.id
+        return f"<departments {self.id}>"
+
+class Employees(db.Model):
+    employeeID = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(200), nullable=False)
+    last_name = db.Column(db.String(200), nullable=False)
+    email = db.Column (db.String(200), nullable=False)
+    phone_number = db.Column (db.Integer, nullable=False)
+    salary = db.Column(db.Integer, nullable=False)
+    departmentID = db.Column(db.Integer, db.ForeignKey('departmentID'))
+
+    def __repr__(self):
+        return f"<departments {self.id}>"
 
 @app.route('/')
 @app.route('/home')
