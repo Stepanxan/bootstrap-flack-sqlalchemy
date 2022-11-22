@@ -1,11 +1,12 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql:///blog.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:19982804@localhost:3306/stepanproject_db'
 db = SQLAlchemy(app)
+db.init_app(app)
 
 
 class Departments(db.Model):
@@ -17,6 +18,7 @@ class Departments(db.Model):
 
     def __repr__(self):
         return f"<departments {self.id}>"
+
 
 class Employees(db.Model):
     employeeID = db.Column(db.Integer, primary_key=True)
@@ -36,14 +38,25 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+@app.route('/create-departments', methods=['POST', 'GET'])
+def create_departments():
+    if request.method == "POST":
+        departmentNAME = request.form['departmentNAME']
+        managerID = request.form['managerID']
+        locationID = request.form['locationID']
 
+        department = Departments(departmentNAME=departmentNAME, managerID=managerID, locationID=locationID)
 
-@app.route('/user/<string:name>/<int:id>')
-def user(name, id):
-    return "User page: " + name + " - " + str(id)
+        try:
+            db.session.add(department)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return "При заповненні виникла помилка"
+
+    else:
+        return render_template("create-departments.html")
+
 
 
 if __name__ == "__main__":
