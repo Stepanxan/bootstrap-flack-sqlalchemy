@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Відомісті про відділи
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Відомісті про відділи</h1>
+
+    {% if departments|length > 0%}
+        {% for el in departments %}
+        <div class="alert alert-info">
+            <h2>{{ el.departmentNAME }}</h2>
+            <p>{{ el.managerID }}</p>
+            <p>{{ el.locationID }}</p>
+            <p><b> Дата {{ el.date.date() }}</b></p>
+            <a href="/selectdepartments/{{ el.departmentID }}" class="btn btn-warning">Детальніше</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>На сайті ще не створенні відділи</p>
+    {% endif %}
+</div>
+{% endblock %}

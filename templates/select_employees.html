@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Відомісті про робітників
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Відомісті про робітників</h1>
+
+    {% if employees|length > 0%}
+        {% for el in employees %}
+        <div class="alert alert-info">
+            <h2>{{ el.first_name }}</h2>
+            <p>{{ el.last_name }}</p>
+            <p>{{ el.email }}</p>
+            <p><b> Дата {{ el.date.date() }}</b></p>
+            <a href="/selectemployees/{{ el.employeeID }}" class="btn btn-warning">Детальніше</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>На сайті ще не додані співробітники</p>
+    {% endif %}
+</div>
+{% endblock %}
+

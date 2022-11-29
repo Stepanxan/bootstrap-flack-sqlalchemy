@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ department.departmentNAME }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ department.departmentNAME }}</h1>
+    <div class="alert alert-info">
+        <p><b>Назва відділу:</b> {{ department.departmentNAME }}</p>
+        <p><b>ID менеджера:</b> {{ department.departmentID }}</p>
+        <p><b>Місто реєстрації:</b> {{ department.locationID }}</p>
+        <p><b>Дата:</b> {{ department.date.date() }}</p>
+        <a href="/selectdepartments/{{ department.departmentID }}/deletedepartments" class="btn btn-danger">Видалити</a>
+        <a href="/selectdepartments/{{ department.departmentID }}/updatedepartments" class="btn btn-success">Редагувати</a>
+    </div>
+</div>
+{% endblock %}
