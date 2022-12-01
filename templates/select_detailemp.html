@@ -12,10 +12,10 @@
         <p><b> Прізвище:</b> {{ employee.last_name }}</p>
         <p><b>Пошта:</b> {{ employee.email }}</p>
         <p><b>Зарплата:</b> {{ employee.salary }}</p>
-        <p><b>Номер відділу:</b> {{ employee.departmentID }}</p>
+        <p><b>Номер відділу:</b> {{ employee.department_id }}</p>
         <p><b> Дата {{ employee.date.date() }}</b></p>
-        <a href="/selectemployees/{{ employee.employeeID }}/deleteemployees" class="btn btn-danger">Видалити</a>
-        <a href="/selectemployees/{{ employee.employeeID }}/updateemployees" class="btn btn-success">Редагувати</a>
+        <a href="/selectemployees/{{ employee.employee_id }}/deleteemployees" class="btn btn-danger">Видалити</a>
+        <a href="/selectemployees/{{ employee.employee_id }}/updateemployees" class="btn btn-success">Редагувати</a>
     </div>
 </div>
 {% endblock %}

@@ -15,7 +15,7 @@
             <p>{{ el.last_name }}</p>
             <p>{{ el.email }}</p>
             <p><b> Дата {{ el.date.date() }}</b></p>
-            <a href="/selectemployees/{{ el.employeeID }}" class="btn btn-warning">Детальніше</a>
+            <a href="/selectemployees/{{ el.employee_id }}" class="btn btn-warning">Детальніше</a>
         </div>
         {% endfor %}
     {% else %}

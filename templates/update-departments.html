@@ -8,9 +8,9 @@
 <div class="container mt-5">
     <h1>Оновити відділ</h1>
   <form method="post">
-       <input type="text" name="departmentNAME" id="departmentNAME" class="form-control" value="{{ department.departmentNAME }}" placeholder="Введіть departmentNAME"><br>
-       <textarea name="managerID" id="managerID" class="form-control" placeholder="Введіть managerID">{{ department.managerID }}</textarea><br>
-       <textarea name="locationID" id="locationID" class="form-control" placeholder="Введіть locationID">{{ department.locationID }}</textarea><br>
+       <input type="text" name="department_name" id="department_name" class="form-control" value="{{ department.department_name }}" placeholder="Введіть department_name"><br>
+       <textarea name="manager_id" id="manager_id" class="form-control" placeholder="Введіть manager_id">{{ department.manager_id }}</textarea><br>
+       <textarea name="location_id" id="location_id" class="form-control" placeholder="Введіть location_id">{{ department.location_id }}</textarea><br>
        <input type="submit" class="btn btn-success" value="Оновити">
   </form>
 </div>

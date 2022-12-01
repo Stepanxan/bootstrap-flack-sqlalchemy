@@ -6,14 +6,14 @@
 
 {% block body %}
 <div class="container">
-    <h1>{{ department.departmentNAME }}</h1>
+    <h1>{{ department.department_name }}</h1>
     <div class="alert alert-info">
-        <p><b>Назва відділу:</b> {{ department.departmentNAME }}</p>
-        <p><b>ID менеджера:</b> {{ department.departmentID }}</p>
-        <p><b>Місто реєстрації:</b> {{ department.locationID }}</p>
+        <p><b>Назва відділу:</b> {{ department.department_name }}</p>
+        <p><b>ID менеджера:</b> {{ department.department_id }}</p>
+        <p><b>Місто реєстрації:</b> {{ department.location_id }}</p>
         <p><b>Дата:</b> {{ department.date.date() }}</p>
-        <a href="/selectdepartments/{{ department.departmentID }}/deletedepartments" class="btn btn-danger">Видалити</a>
-        <a href="/selectdepartments/{{ department.departmentID }}/updatedepartments" class="btn btn-success">Редагувати</a>
+        <a href="/selectdepartments/{{ department.department_id }}/deletedepartments" class="btn btn-danger">Видалити</a>
+        <a href="/selectdepartments/{{ department.department_id }}/updatedepartments" class="btn btn-success">Редагувати</a>
     </div>
 </div>
 {% endblock %}

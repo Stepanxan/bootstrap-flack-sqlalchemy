@@ -11,11 +11,11 @@
     {% if departments|length > 0%}
         {% for el in departments %}
         <div class="alert alert-info">
-            <h2>{{ el.departmentNAME }}</h2>
-            <p>{{ el.managerID }}</p>
-            <p>{{ el.locationID }}</p>
+            <h2>{{ el.department_name }}</h2>
+            <p>{{ el.manager_id }}</p>
+            <p>{{ el.location_id }}</p>
             <p><b> Дата {{ el.date.date() }}</b></p>
-            <a href="/selectdepartments/{{ el.departmentID }}" class="btn btn-warning">Детальніше</a>
+            <a href="/selectdepartments/{{ el.department_id }}" class="btn btn-warning">Детальніше</a>
         </div>
         {% endfor %}
     {% else %}
