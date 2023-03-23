@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Departments(db.Model):
-    __tablename__="departments"
+    __tablename__ = "departments"
     department_id = db.Column(db.Integer, primary_key=True)
     department_name = db.Column(db.String(200), nullable=False)
     manager_id = db.Column(db.Integer, nullable=False)
@@ -16,6 +16,7 @@ class Departments(db.Model):
 
 
 class Employees(db.Model):
+    __tablename__ = "employees"
     employee_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200), nullable=False)
     last_name = db.Column(db.String(200), nullable=False)
